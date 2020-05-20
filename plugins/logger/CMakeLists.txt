@@ -145,7 +145,7 @@ endfunction()
 
 function(generatePluginsLoggerKafkaproducer)
 
-  if(DEFINED PLATFORM_LINUX OR DEFINED PLATFORM_MACOS)
+  # if(DEFINED PLATFORM_LINUX OR DEFINED PLATFORM_MACOS)
     add_osquery_library(plugins_logger_kafkaproducer EXCLUDE_FROM_ALL
       kafka_producer.cpp
     )
@@ -166,9 +166,9 @@ function(generatePluginsLoggerKafkaproducer)
 
     generateIncludeNamespace(plugins_logger_kafkaproducer "plugins/logger" "FILE_ONLY" ${public_header_files})
     add_test(NAME plugins_logger_tests_kafkaproducerloggertests-test COMMAND plugins_logger_tests_kafkaproducerloggertests-test)
-  else()
-    add_osquery_library(plugins_logger_kafkaproducer INTERFACE)
-  endif()
+  # else()
+  #  add_osquery_library(plugins_logger_kafkaproducer INTERFACE)
+  # endif()
 endfunction()
 
 function(generatePluginsLoggerStdout)
